@@ -1,0 +1,479 @@
+@prefix : <http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8> .
+
+<http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#datatype
+rdf:datatype rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#hasColor
+:hasColor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#hasNeed
+:hasNeed rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#hasOwner
+:hasOwner rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#hasType
+:hasType rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#isNeededBy
+:isNeededBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#isOwnerOf
+:isOwnerOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#isTypeOf
+:isTypeOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Animal
+:Animal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Bird
+:Bird rdf:type owl:Class ;
+      rdfs:subClassOf :Pet .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#BirdFood
+:BirdFood rdf:type owl:Class ;
+          rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#BirdPellets
+:BirdPellets rdf:type owl:Class ;
+             rdfs:subClassOf :BirdFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#BirdSeed
+:BirdSeed rdf:type owl:Class ;
+          rdfs:subClassOf :BirdFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CageEnvironment
+:CageEnvironment rdf:type owl:Class ;
+                 rdfs:subClassOf :House .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Cat
+:Cat rdf:type owl:Class ;
+     rdfs:subClassOf :Pet ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasColor ;
+                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CatColor
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasColor ;
+                       owl:maxQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CatColor
+                     ] .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatBreed
+:CatBreed rdf:type owl:Class ;
+          rdfs:subClassOf :CatProperties ;
+          rdfs:isDefinedBy <http://www.cfa.org/breeds.aspx> .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatCannedFood
+:CatCannedFood rdf:type owl:Class ;
+               rdfs:subClassOf :CatFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatCleaning
+:CatCleaning rdf:type owl:Class ;
+             rdfs:subClassOf :CleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatColor
+:CatColor rdf:type owl:Class ;
+          rdfs:subClassOf :CatProperties .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatCondo
+:CatCondo rdf:type owl:Class ;
+          rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatEnrichment
+:CatEnrichment rdf:type owl:Class ;
+               rdfs:subClassOf :Enrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatFood
+:CatFood rdf:type owl:Class ;
+         rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatGrooming
+:CatGrooming rdf:type owl:Class ;
+             rdfs:subClassOf :PetGrooming .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatKibble
+:CatKibble rdf:type owl:Class ;
+           rdfs:subClassOf :CatFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatLitter
+:CatLitter rdf:type owl:Class ;
+           rdfs:subClassOf :CatCleaning .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatLitterBox
+:CatLitterBox rdf:type owl:Class ;
+              rdfs:subClassOf :CatCleaning .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatLitterBoxScoop
+:CatLitterBoxScoop rdf:type owl:Class ;
+                   rdfs:subClassOf :CatCleaning .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatProperties
+:CatProperties rdf:type owl:Class ;
+               rdfs:subClassOf :PetProperties .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatScratchingPost
+:CatScratchingPost rdf:type owl:Class ;
+                   rdfs:subClassOf :CatScrather .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatScrather
+:CatScrather rdf:type owl:Class ;
+             rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatString
+:CatString rdf:type owl:Class ;
+           rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatToyMice
+:CatToyMice rdf:type owl:Class ;
+            rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CatTree
+:CatTree rdf:type owl:Class ;
+         rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Catnip
+:Catnip rdf:type owl:Class ;
+        rdfs:subClassOf :CatEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#CleaningSupplies
+:CleaningSupplies rdf:type owl:Class ;
+                  rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Dog
+:Dog rdf:type owl:Class ;
+     rdfs:subClassOf :Pet .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogBaggies
+:DogBaggies rdf:type owl:Class ;
+            rdfs:subClassOf :DogCleaning .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogBall
+:DogBall rdf:type owl:Class ;
+         rdfs:subClassOf :DogToy .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogBone
+:DogBone rdf:type owl:Class ;
+         rdfs:subClassOf :DogToy .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogBreed
+:DogBreed rdf:type owl:Class ;
+          rdfs:subClassOf :DogProperties ;
+          rdfs:isDefinedBy <https://www.akc.org/dog-breeds/> .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogCannedFood
+:DogCannedFood rdf:type owl:Class ;
+               rdfs:subClassOf :DogFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogCleaning
+:DogCleaning rdf:type owl:Class ;
+             rdfs:subClassOf :CleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogColor
+:DogColor rdf:type owl:Class ;
+          rdfs:subClassOf :DogProperties .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogEnrichment
+:DogEnrichment rdf:type owl:Class ;
+               rdfs:subClassOf :Enrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogFood
+:DogFood rdf:type owl:Class ;
+         rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogGrooming
+:DogGrooming rdf:type owl:Class ;
+             rdfs:subClassOf :PetGrooming .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogHouse
+:DogHouse rdf:type owl:Class ;
+          rdfs:subClassOf :Outside .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogKibble
+:DogKibble rdf:type owl:Class ;
+           rdfs:subClassOf :DogFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogProperties
+:DogProperties rdf:type owl:Class ;
+               rdfs:subClassOf :PetProperties .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogRopeToy
+:DogRopeToy rdf:type owl:Class ;
+            rdfs:subClassOf :DogToy .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#DogToy
+:DogToy rdf:type owl:Class ;
+        rdfs:subClassOf :DogEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Enrichment
+:Enrichment rdf:type owl:Class ;
+            rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Environment
+:Environment rdf:type owl:Class ;
+             rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#EnzymeCleaner
+:EnzymeCleaner rdf:type owl:Class ;
+               rdfs:subClassOf :GeneralCleaning .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Filter
+:Filter rdf:type owl:Class ;
+        rdfs:subClassOf :FishCleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Fish
+:Fish rdf:type owl:Class ;
+      rdfs:subClassOf :Pet .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishBowl
+:FishBowl rdf:type owl:Class ;
+          rdfs:subClassOf :House .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishCastle
+:FishCastle rdf:type owl:Class ;
+            rdfs:subClassOf :FishEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishCleaningSupplies
+:FishCleaningSupplies rdf:type owl:Class ;
+                      rdfs:subClassOf :CleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishEnrichment
+:FishEnrichment rdf:type owl:Class ;
+                rdfs:subClassOf :Enrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishFood
+:FishFood rdf:type owl:Class ;
+          rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishFoodFlakes
+:FishFoodFlakes rdf:type owl:Class ;
+                rdfs:subClassOf :FishFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishFoodPellets
+:FishFoodPellets rdf:type owl:Class ;
+                 rdfs:subClassOf :FishFood .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#FishPlants
+:FishPlants rdf:type owl:Class ;
+            rdfs:subClassOf :FishEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Food
+:Food rdf:type owl:Class ;
+      rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Furniture
+:Furniture rdf:type owl:Class ;
+           rdfs:subClassOf :GeneralPetEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#GeneralCleaning
+:GeneralCleaning rdf:type owl:Class ;
+                 rdfs:subClassOf :CleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#GeneralPetEnrichment
+:GeneralPetEnrichment rdf:type owl:Class ;
+                      rdfs:subClassOf :Enrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Hamster
+:Hamster rdf:type owl:Class ;
+         rdfs:subClassOf :Pet .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#House
+:House rdf:type owl:Class ;
+       rdfs:subClassOf :Environment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#KennelEnvironment
+:KennelEnvironment rdf:type owl:Class ;
+                   rdfs:subClassOf :House .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#LaserPointer
+:LaserPointer rdf:type owl:Class ;
+              rdfs:subClassOf :GeneralPetEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#MedicalNeeds
+:MedicalNeeds rdf:type owl:Class ;
+              rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#MedicalProcedures
+:MedicalProcedures rdf:type owl:Class ;
+                   rdfs:subClassOf :MedicalNeeds .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Outside
+:Outside rdf:type owl:Class ;
+         rdfs:subClassOf :Environment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Owner
+:Owner rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :isOwnerOf ;
+                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Pet
+                       ] ;
+       rdfs:comment "The person, people, or organization(s) responsible for a pet." .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Pet
+:Pet rdf:type owl:Class ;
+     rdfs:subClassOf :Animal ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasOwner ;
+                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :Owner
+                     ] .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetBed
+:PetBed rdf:type owl:Class ;
+        rdfs:subClassOf :GeneralPetEnrichment .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetGrooming
+:PetGrooming rdf:type owl:Class ;
+             rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetNecessity
+:PetNecessity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetProperties
+:PetProperties rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetSchedule
+:PetSchedule rdf:type owl:Class ;
+             rdfs:subClassOf :PetNecessity .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetShots
+:PetShots rdf:type owl:Class ;
+          rdfs:subClassOf :MedicalNeeds .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#PetWeight
+:PetWeight rdf:type owl:Class ;
+           rdfs:subClassOf :PetProperties .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#TankCleaning
+:TankCleaning rdf:type owl:Class ;
+              rdfs:subClassOf :FishCleaningSupplies .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#TankEnvironment
+:TankEnvironment rdf:type owl:Class ;
+                 rdfs:subClassOf :House .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Tarantula
+:Tarantula rdf:type owl:Class ;
+           rdfs:subClassOf :Pet .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Yard
+:Yard rdf:type owl:Class ;
+      rdfs:subClassOf :Outside .
+
+
+###  http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Spay/Neuter
+<http://www.semanticweb.org/ridenour/ontologies/2019/11/untitled-ontology-8#Spay/Neuter> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf :MedicalProcedures .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
